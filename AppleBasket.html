@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background: linear-gradient(to left, white 50%, gray );
+        }
+        .container .box{
+            width: 80%;
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 2rem;
+
+        }
+        .box .basket{
+            background: black;
+            border: 2px solid black;
+            border-bottom-left-radius: 2em;
+            border-bottom-right-radius: 2em;
+            color: white;
+            padding: 2rem;
+            display: grid;
+            place-items: center;
+            gap: 1rem;
+        }.box .basket p{
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            color: green;
+            font-weight: 900;
+            font-family: monospace;
+        }.box .basket span{
+            font-size: 2rem;
+        }
+        .box .btns{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box .btns button{
+            /* padding: 01rem 5px; */
+            background: transparent;
+            border: none;
+            outline: none; 
+            font-size: 4rem;
+            color: black;
+            margin-inline: 2rem;
+            padding: 0;
+            cursor: pointer;;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+           <div class="basket"><span class="box1"></span><strong>Apple</strong>
+            <p>basket 1</p>
+           </div>
+           
+           <div class="btns">
+               <button class="prevBtn">⇦</button>
+               <button class="nextBtn">⇨</button>
+            </div>
+            <div class="basket"><span class="box2"></span><strong>Apple</strong><p>basket 2</p></div>
+            
+        </div>
+    </div>
+    <script>
+        const nextBtn = document.querySelector(".nextBtn")
+        const prevBtn = document.querySelector(".prevBtn")
+        const box1 = document.querySelector(".box1")
+        const box2 = document.querySelector(".box2")
+
+        let totalApple = 10;
+        let minApple = 0;
+        box1.innerHTML = totalApple
+        box2.innerHTML = minApple
+        nextBtn.addEventListener("click", ()=>{
+            totalApple += - 1;
+            if (totalApple >= 0) {
+                box1.innerHTML = totalApple   
+            }else{
+            }
+            minApple += + 1;
+            if (minApple <= 10) {
+                box2.innerHTML = minApple
+                
+            }
+        })
+        prevBtn.addEventListener("click", ()=>{
+            totalApple += + 1;
+            if (totalApple <= 10) {
+                box1.innerHTML = totalApple   
+            }
+            minApple += - 1;
+            if (minApple >= 0) {
+                box2.innerHTML = minApple
+            
+            }
+        })
+    </script>
+</body>
+</html>
